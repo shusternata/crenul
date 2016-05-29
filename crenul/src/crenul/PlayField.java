@@ -17,7 +17,7 @@ public class PlayField {
 		System.out.println("Готово");
 	}
     public void printField() {
-    	System.out.println("  | 0 | 1 | 2 |");
+    	System.out.println("\n  | 0 | 1 | 2 |");
     	System.out.println("________________");
     	System.out.print("a");
     	for(int i = 0; i < 3; i++){
@@ -36,7 +36,8 @@ public class PlayField {
     	System.out.println(" |");
     }
     public boolean setCell(String str, String user){ 
-    	String iString = str.substring(0, 0);
+    	String iString = str.substring(0, 1);
+    	System.out.println(iString);
     	int i = -1;
     	switch(iString){
     	case "a":
@@ -49,13 +50,14 @@ public class PlayField {
     		i = 2;
     		break;
     	}
-    	int j = Integer.parseInt(str.substring(1, 1));
+    	int j = Integer.parseInt(str.substring(1, 2));
+    	System.out.println(j);
     	if(i<0 || i>2 || j<0 || j>2){
-    		System.out.println("неправельный ввод");
+    		System.out.println("неправильный ввод");
     		return false;
     	}
     	if(field.get(i).get(j).equalsIgnoreCase(" ")){
-    		field.get(i).get(j).replace(" ", user);
+    		field.get(i).add(j, user);
     		return true;
     	}
     	return false;
