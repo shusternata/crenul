@@ -34,6 +34,30 @@ public class PlayField {
     		System.out.print(" | " + field.get(2).get(i));	
     	}
     	System.out.println(" |");
-    	
+    }
+    public boolean setCell(String str, String user){ 
+    	String iString = str.substring(0, 0);
+    	int i = -1;
+    	switch(iString){
+    	case "a":
+    		i = 0;
+    		break;
+    	case "b":
+    		i = 1;
+    		break;
+    	case "c":
+    		i = 2;
+    		break;
+    	}
+    	int j = Integer.parseInt(str.substring(1, 1));
+    	if(i<0 || i>2 || j<0 || j>2){
+    		System.out.println("неправельный ввод");
+    		return false;
+    	}
+    	if(field.get(i).get(j).equalsIgnoreCase(" ")){
+    		field.get(i).get(j).replace(" ", user);
+    		return true;
+    	}
+    	return false;
     }
 }
